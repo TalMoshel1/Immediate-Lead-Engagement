@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "@green-api/greenapi-integration": "^0.7.1",
+    "@green-api/whatsapp-api-client": "^0.4.4",
+    "@green-api/whatsapp-api-client-js-v2": "^1.0.0",
+    "agenda": "^5.0.0",
+    "axios": "^1.11.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "googleapis": "^150.0.1",
+    "luxon": "^3.7.2",
+    "mongodb": "^6.17.0",
+    "nodemailer": "^7.0.6",
+    "openai": "^5.8.3",
+    "passport": "^0.7.0",
+    "passport-google-oauth2": "^0.2.0"
+  }
+}

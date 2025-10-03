@@ -1,0 +1,40 @@
+version: '3.8' # גרסת Docker Compose מומלצת
+
+services:
+  # שירות אפליקציית ה-Node.js
+  node-app:
+    # בונה את האימג' מתוך ה-Dockerfile שנמצא בתיקיית whatsapp_api_nodejs
+    build: . # <--- שינוי כאן לנקודה בודדת
+    ports:
+      # מיפוי פורטים: "פורט מקומי במחשב שלך:פורט בתוך הקונטיינר"
+      # האפליקציה ב-Node.js בתוך הקונטיינר צריכה להאזין לפורט 3000
+      - "3001:3001"
+    environment:
+      # הגדרת משתני סביבה עבור אפליקציית ה-Node.js
+      # אלו יילקחו מקובץ ה-.env שלך (אם קיים)
+      GREENAPI_ID: ${idInstance}
+      GREENAPI_TOKEN: ${apiTokenInstance}
+      # הגדרת ה-URI לחיבור למונגו DB
+      # 'mongo' הוא שם השירות של מונגו בתוך רשת הדוקר קומפוז
+      MONGO_URI: mongodb://mongo:27017/my-mongo # החלף את 'your_database_name_here' בשם הדאטה בייס שלך
+    depends_on:
+      # מבטיח ששירות ה'mongo' יופעל לפני שירות ה'node-app'
+      - mongo
+    restart: always # מפעיל מחדש את הקונטיינר אם הוא קורס
+
+  # שירות מונגו DB
+  mongo:
+    image: mongo:latest # משתמש באימג' האחרון של מונגו DB
+    ports:
+      # מיפוי פורטים: "פורט מקומי במחשב שלך:פורט בתוך הקונטיינר"
+      # פורט ברירת המחדל של מונגו הוא 27017
+      - "27017:27017"
+    volumes:
+      # שומר את נתוני המונגו בנפח (volume) קבוע
+      # זה מבטיח שהנתונים לא יימחקו כשמורידים את הקונטיינר
+      - mongo_data:/data/db
+    restart: always # מפעיל מחדש את הקונטיינר אם הוא קורס
+
+# הגדרת הנפח (volume) שבו יישמרו נתוני מונגו DB
+volumes:
+  mongo_data:
