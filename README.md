@@ -61,31 +61,6 @@ Instead of waiting for manual follow-up, users receive instant engagement that s
 
 ---
 
-## 📁 Folder Structure (example)
-
-```
-Immediate-Lead-Engagement/
-├── src/
-│   ├── api/
-│   │   ├── pagespeed.js          # Handles PageSpeed Insights API requests
-│   │   ├── greenApi.js           # WhatsApp messaging via GreenAPI
-│   │   ├── openaiHandler.js      # Function calling with OpenAI
-│   │   └── calendar.js           # iCalendar (.ics) event creation
-│   ├── db/
-│   │   └── connect.js            # MongoDB connection
-│   ├── models/
-│   │   └── User.js               # User schema & interaction logs
-│   ├── routes/
-│   │   └── index.js              # Express routes
-│   ├── utils/
-│   │   └── messageTemplates.js   # WhatsApp message templates
-│   └── app.js                    # Express setup
-├── .env                          # Environment variables
-├── package.json
-└── README.md
-```
-
----
 
 ## 🔧 Installation & Setup
 
