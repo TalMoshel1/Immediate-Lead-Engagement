@@ -106,10 +106,10 @@ Immediate-Lead-Engagement/
    Create a `.env` file:
 
    ```bash
-   GREEN_API_INSTANCE_ID=your_greenapi_instance
-   GREEN_API_TOKEN=your_greenapi_token
-   OPENAI_API_KEY=your_openai_key
-   MONGO_URI=your_mongodb_uri
+   OPENAI_KEY
+   OPENAI_ORGANIZATION_ID
+   MONGODB_URI
+   idInstance, apiTokenInstance (for whatsappClient.restAPI)
    ```
 
 4. **Run the project**
